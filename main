@@ -40,7 +40,7 @@ while(again != "n"):
         print("  ", spots[7], "|", spots[8], "|", spots[9])
         
         compChoice = choice
-        while (spots[compChoice] != "   "):
+        while not(spots[compChoice] == "   "):
             if(choice == 1):
                 compChoice = random.randint(2, 5)
             if(choice == 2):
@@ -123,3 +123,4 @@ while(again != "n"):
         turns += 1
     
     again = input("Would you like to play again? (y/n) ")
+print("Thanks for playing!")
