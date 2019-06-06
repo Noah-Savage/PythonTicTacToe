@@ -1,5 +1,5 @@
 
-import random;
+import random
 seed1 = random.randint(0,1000)
 random.seed(seed1)
 
@@ -29,6 +29,8 @@ while(again != "n"):
     while(turns < 9):
     
         choice = int(input("What square would you like to play? (1-9) "))
+        if(spots[choice] != "   "):
+            choice = int(input("That square is taken! Enter another: "))
         spots[choice] = " X "
         
         print("  ", spots[1], "|", spots[2], "|", spots[3])
@@ -37,9 +39,27 @@ while(again != "n"):
         print("  ------------------")
         print("  ", spots[7], "|", spots[8], "|", spots[9])
         
-        compChoice = random.randint(1, 9)
-        while(spots[compChoice] != "   "):
-            compChoice = random.randint(1, 9)
+        compChoice = choice
+        while (spots[compChoice] != "   "):
+            if(choice == 1):
+                compChoice = random.randint(2, 5)
+            if(choice == 2):
+                compChoice = random.randint(1, 5)
+            if(choice == 3):
+                compChoice = random.randint(2, 6)
+            if(choice == 4):
+                compChoice = random.randint(1, 8)
+            if(choice == 5):
+                compChoice = random.randint(1, 9)
+            if(choice == 6):
+                compChoice = random.randint(2, 9)
+            if(choice == 7):
+                compChoice = random.randint(4, 9)
+            if(choice == 8):
+                compChoice = random.randint(5, 9)
+            if(choice == 9):
+                compChoice = random.randint(6, 9)
+
         spots[compChoice] = " O "
         
         print("\nComputer takes it's turn")
