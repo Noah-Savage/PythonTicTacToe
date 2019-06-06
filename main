@@ -1,0 +1,105 @@
+
+import random;
+seed1 = random.randint(0,1000)
+random.seed(seed1)
+
+again = ""
+compChoice = 0;
+turns = 0;
+
+choice = 0
+while(again != "n"):
+    spots = {
+            1 : "   ",
+            2 : "   ",
+            3 : "   ",
+            4 : "   ",
+            5 : "   ",
+            6 : "   ",
+            7 : "   ",
+            8 : "   ",
+            9 : "   "
+        }
+        
+    print("  ", spots[1], "|", spots[2], "|", spots[3])
+    print("  ------------------")
+    print("  ", spots[4], "|", spots[5], "|", spots[6])
+    print("  ------------------")
+    print("  ", spots[7], "|", spots[8], "|", spots[9])
+    while(turns < 9):
+    
+        choice = int(input("What square would you like to play? (1-9) "))
+        spots[choice] = " X "
+        
+        print("  ", spots[1], "|", spots[2], "|", spots[3])
+        print("  ------------------")
+        print("  ", spots[4], "|", spots[5], "|", spots[6])
+        print("  ------------------")
+        print("  ", spots[7], "|", spots[8], "|", spots[9])
+        
+        compChoice = random.randint(1, 9)
+        while(spots[compChoice] != "   "):
+            compChoice = random.randint(1, 9)
+        spots[compChoice] = " O "
+        
+        print("\nComputer takes it's turn")
+        print("  ", spots[1], "|", spots[2], "|", spots[3])
+        print("  ------------------")
+        print("  ", spots[4], "|", spots[5], "|", spots[6])
+        print("  ------------------")
+        print("  ", spots[7], "|", spots[8], "|", spots[9])
+       
+       #Setup cases for user win 
+        if(spots[1] == spots[2] == spots[3] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[1] == spots[5] == spots[9] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[1] == spots[4] == spots[7] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[2] == spots[5] == spots[8] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[3] == spots[6] == spots[9] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[4] == spots[5] == spots[6] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[7] == spots[8] == spots[9] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        if(spots[3] == spots[5] == spots[7] == " X "):
+            print("Winner winner, chicken dinner!")
+            break
+        
+        #Setup cases for CPU win
+        if(spots[1] == spots[2] == spots[3] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[1] == spots[5] == spots[9] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[1] == spots[4] == spots[7] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[2] == spots[5] == spots[8] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[3] == spots[6] == spots[9] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[4] == spots[5] == spots[6] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[7] == spots[8] == spots[9] == " O "):
+            print("CPU Wins!")
+            break
+        if(spots[3] == spots[5] == spots[7] == " O "):
+            print("CPU Wins!")
+            break
+        turns += 1
+    
+    again = input("Would you like to play again? (y/n) ")
